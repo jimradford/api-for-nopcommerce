@@ -153,35 +153,35 @@ namespace Nop.Plugin.Api.Infrastructure
             return $"{_webHelper.GetStoreLocation()}Admin/ApiAdmin/Settings";
         }
 
-        public async Task ManageSiteMapAsync(SiteMapNode rootNode)
-        {
-            var workingLanguage = await _workContext.GetWorkingLanguageAsync();
+        //public async Task ManageSiteMapAsync(SiteMapNode rootNode)
+        //{
+        //    var workingLanguage = await _workContext.GetWorkingLanguageAsync();
 
-            var pluginMenuName = await _localizationService.GetResourceAsync("Plugins.Api.Admin.Menu.Title", workingLanguage.Id, defaultValue: "API");
+        //    var pluginMenuName = await _localizationService.GetResourceAsync("Plugins.Api.Admin.Menu.Title", workingLanguage.Id, defaultValue: "API");
 
-            var settingsMenuName = await _localizationService.GetResourceAsync("Plugins.Api.Admin.Menu.Settings.Title", workingLanguage.Id, defaultValue: "API");
+        //    var settingsMenuName = await _localizationService.GetResourceAsync("Plugins.Api.Admin.Menu.Settings.Title", workingLanguage.Id, defaultValue: "API");
 
-            const string adminUrlPart = "Admin/";
+        //    const string adminUrlPart = "Admin/";
 
-            var pluginMainMenu = new SiteMapNode
-            {
-                Title = pluginMenuName,
-                Visible = true,
-                SystemName = "Api-Main-Menu",
-                IconClass = "fa-genderless"
-            };
+        //    var pluginMainMenu = new SiteMapNode
+        //    {
+        //        Title = pluginMenuName,
+        //        Visible = true,
+        //        SystemName = "Api-Main-Menu",
+        //        IconClass = "fa-genderless"
+        //    };
 
-            pluginMainMenu.ChildNodes.Add(new SiteMapNode
-            {
-                Title = settingsMenuName,
-                Url = _webHelper.GetStoreLocation() + adminUrlPart + "ApiAdmin/Settings",
-                Visible = true,
-                SystemName = "Api-Settings-Menu",
-                IconClass = "fa-genderless"
-            });
+        //    pluginMainMenu.ChildNodes.Add(new SiteMapNode
+        //    {
+        //        Title = settingsMenuName,
+        //        Url = _webHelper.GetStoreLocation() + adminUrlPart + "ApiAdmin/Settings",
+        //        Visible = true,
+        //        SystemName = "Api-Settings-Menu",
+        //        IconClass = "fa-genderless"
+        //    });
 
 
-            rootNode.ChildNodes.Add(pluginMainMenu);
-        }
+        //    rootNode.ChildNodes.Add(pluginMainMenu);
+        //}
     }
 }
